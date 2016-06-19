@@ -21,20 +21,6 @@
               </div>
         </div>
         <div class="col-sm-3">
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>Category</h3>
-                    <p>Category Information</p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-list-alt"></i>
-                </div>
-                <a href="{{url('category')}}" class="small-box-footer">
-                    Click here  <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-        </div>
-        <div class="col-sm-3">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>Product</h3>
