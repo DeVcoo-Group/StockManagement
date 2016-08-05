@@ -1,0 +1,13 @@
+/vendor
+/node_modules/**
+/bower_components/**
+/public/storage
+Homestead.yaml
+Homestead.json
+.env
+/.metadata
+/public/lib/**
+/public/css/**
+/.bower-cache/**
+/.bower-registry/**
+/.bower-tmp/**

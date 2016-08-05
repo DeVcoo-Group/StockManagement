@@ -13,6 +13,9 @@
         </div>
         <div class="box-body">
             <h2><i class="fa fa-exclamation-triangle" style="color:red"></i> Sorry, we can't find the page you're looking for.</h2><br>
+            @if(!empty($message))
+            <pre>{{$message}}</pre>
+            @endif
             <a href="javascript:window.history.back();">Back to previous page</a>
         </div>
     </div>

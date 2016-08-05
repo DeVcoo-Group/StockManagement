@@ -20,6 +20,20 @@
                 </a>
               </div>
         </div>
+        <!--<div class="col-sm-3">
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>Category</h3>
+                    <p>Category Information</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-list-alt"></i>
+                </div>
+                <a href="{{url('category')}}" class="small-box-footer">
+                    Click here  <i class="fa fa-arrow-circle-right"></i>
+                </a>
+              </div>
+        </div>-->
         <div class="col-sm-3">
             <div class="small-box bg-red">
                 <div class="inner">
@@ -51,13 +65,13 @@
         <div class="col-sm-3">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>Import</h3>
-                    <p>Import Information</p>
+                    <h3>In Flow</h3>
+                    <p>In Flow Information</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
-                <a href="{{url('import')}}" class="small-box-footer">
+                <a href="{{url('incoming')}}" class="small-box-footer">
                     Click here  <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -65,13 +79,13 @@
         <div class="col-sm-3">
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>Export</h3>
-                    <p>Export Information</p>
+                    <h3>Out Flow</h3>
+                    <p>Out Flow Information</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-shopping-basket"></i>
                 </div>
-                <a href="{{url('export')}}" class="small-box-footer">
+                <a href="{{url('outcoming')}}" class="small-box-footer">
                     Click here  <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>

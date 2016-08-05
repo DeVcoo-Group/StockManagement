@@ -11,7 +11,10 @@
                 <h3 class="box-title"></h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <a href="{{route('stock.history')}}">Inventory History</a>
+                <div class="form-group">
+                    <a href="{{route('stock.history')}}" class="btn btn-default">Inventory History</a>
+                    <a href="javascript:window.history.back();" class="btn btn-default">Back</a>
+                </div>
                 <table class="table table-bordered">
                     <tr>
                         <th>Product Name</th>
@@ -20,18 +23,18 @@
                     @forelse ($inventorys as $inventory)
                         <tr>
                             <td>
-                                {{$inventory->product->name}}
+                                <a href="{{route('inventory.show', ['inventory'=>$inventory->id])}}">{{$inventory->product->name}}</a>
                             </td>
                             <td>
                                 {{$inventory->qty}}
                             </td>
-                        <tr>               
+                        <tr>
                    @empty
                         <tr>
                             <td colspan=2><h2>No Record</h2></td>
                         <tr>
                     @endforelse
-                </table>       
+                </table>
             </div>
         </div>
     </div>

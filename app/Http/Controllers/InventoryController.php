@@ -9,10 +9,18 @@ use App\Inventory;
 class InventoryController extends Controller
 {
    protected $inventory;
-    
+
     public function index()
     {
-        return view('inventoryTable')->with('inventorys',Inventory::all());
+        $inventories = Inventory::all();
+        foreach ($inventories as $value) {
+            $qty = 0;
+            foreach ($value->inventoryPrice as $value1) {
+                $qty = $qty + $value1->qty;
+            }
+            $value->qty = $qty;
+        }
+        return view('inventoryTable')->with('inventorys',$inventories);
     }
 
     public function create()
@@ -25,9 +33,9 @@ class InventoryController extends Controller
     {
         $inventory = new Inventory;
         if($request->id != null) {
-            $inventory->id = $request->id;    
+            $inventory->id = $request->id;
             $inventory= Inventory::find($request->id);
-        }        
+        }
         $inventory->name = $request->name;
         $inventory->save();
         return $this->index();
@@ -36,7 +44,7 @@ class InventoryController extends Controller
     public function show($id)
     {
         $inventory = Inventory::findOrFail($id);
-        return view('inventoryForm')->with('inventory',$inventory);
+        return view('inventoryWithPriceTable')->with('inventory',$inventory);
     }
 
     public function edit($id)
@@ -55,10 +63,10 @@ class InventoryController extends Controller
        $inventory->delete();
        return view('inventoryTable')->with('inventorys',Inventory::all());
     }
-    
+
     public function __construct()
     {
         $inventory = new Inventory;
     }
-    
+
 }

@@ -22,7 +22,7 @@ class CreateStockControlTable extends Migration
             $table->foreign('refreturn')->references('id')->on('stockcontrol');
             $table->integer('refpro')->unsigned();
             $table->foreign('refpro')->references('id')->on('product');
-            $table->integer('refsup')->unsigned();
+            $table->integer('refsup')->nullable()->unsigned();
             $table->foreign('refsup')->references('id')->on('supplier');
             $table->timestamps();
         });

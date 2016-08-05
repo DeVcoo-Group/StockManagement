@@ -12,5 +12,13 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    //mix.sass('app.scss')
+    mix.less([
+        'AdminLTE.less',
+        'skins/_all-skins.less'
+    ],'public/css/app.css')
+    .scripts([
+        'app.js'
+    ], 'public/lib/app.js')
+    .copy('bower_components/*','public/lib');
 });

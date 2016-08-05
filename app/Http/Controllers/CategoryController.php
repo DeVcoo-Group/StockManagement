@@ -41,9 +41,9 @@ class CategoryController extends Controller
     {
         $category = new Category;
         if($request->id != null) {
-            $category->id = $request->id;    
+            $category->id = $request->id;
             $category= Category::find($request->id);
-        }        
+        }
         $category->name = $request->name;
         $category->description = $request->description;
         $category->save();
@@ -97,7 +97,7 @@ class CategoryController extends Controller
        $category->delete();
        return view('categoryTable')->with('categories',Category::all());
     }
-    
+
     public function __construct()
     {
         $category = new Category;

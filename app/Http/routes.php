@@ -12,10 +12,8 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-
-    Route::get('/', function () {
-        return view('home');
-    });
+    Route::auth();
+    Route::get('/', 'HomeController@index');
     Route::get('/error', function () {
         return view('errors.404');
     });
@@ -30,12 +28,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('/product', 'ProductController');
     Route::resource('/inventory', 'InventoryController');
     Route::get('/stock/history',['as' => 'stock.history',  'uses' => 'StockControlController@findWhere']);
-    Route::get('/import/{id?}', ['as' => 'import.index',  'uses' => 'StockControlController@importIndex']);
-    Route::get('/export/{id?}',  ['as' => 'export.index', 'uses' => 'StockControlController@exportIndex']);
-    //Route::get('/import/return/{id}/{returnid?}',  ['as' => 'import.return', 'uses' => 'StockControlController@importReturnShow']);
-    //Route::get('/export/return/{id}/{returnid?}',  ['as' => 'export.return', 'uses' => 'StockControlController@exportReturnShow']);
-    Route::post('/import', [ 'as' => 'import.store', 'uses' => 'StockControlController@import']);
-    Route::post('/import/return', [ 'as' => 'import.return', 'uses' => 'StockControlController@returnImport']);
-    Route::post('/export', [ 'as' => 'export.store', 'uses' => 'StockControlController@export']);
-    Route::post('/export/return/{returnid?}', [ 'as' => 'export.return', 'uses' => 'StockControlController@returnexport']);
+
+    Route::get('/incoming/{id?}', ['as' => 'incoming.index',  'uses' => 'InController@inIndex']);
+    Route::post('/incoming', [ 'as' => 'incoming.store', 'uses' => 'InController@in']);
+    Route::post('/incoming/return', [ 'as' => 'incoming.return', 'uses' => 'InController@returnIn']);
+
+    Route::get('/outcoming/{id?}',  ['as' => 'outcoming.index', 'uses' => 'OutController@outIndex']);
+    Route::post('/outcoming', [ 'as' => 'outcoming.store', 'uses' => 'OutController@out']);
+    Route::post('/outcoming/return', [ 'as' => 'outcoming.return', 'uses' => 'OutController@returnOut']);
 });

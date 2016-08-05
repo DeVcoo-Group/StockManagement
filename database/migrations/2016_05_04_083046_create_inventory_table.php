@@ -14,7 +14,6 @@ class CreateInventoryTable extends Migration
     {
         Schema::create('inventory', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('qty');
             $table->integer('refpro')->unsigned();
             $table->foreign('refpro')->references('id')->on('product');
             $table->timestamps();
