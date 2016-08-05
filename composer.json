@@ -42,6 +42,9 @@
         "post-update-cmd": [
             "php artisan clear-compiled",
             "php artisan optimize"
+        ], 
+        "postinstall" : [
+        	"npm install"
         ]
     },
     "config": {
